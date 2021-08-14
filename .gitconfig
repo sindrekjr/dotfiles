@@ -1,0 +1,8 @@
+[alias]
+	graph = log --oneline --graph --pretty=format:'%C(green dim)%h%Creset %C(cyan)(%cr)%Creset %C(blue)%C(bold)%d%Creset %s %C(yellow)- %aN%Creset'
+	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ / | sort
+	publish = push -u origin HEAD
+	pad = add --patch
+
+[core]
+	ignorecase = false

@@ -1,0 +1,26 @@
+{
+	"Function Component": {
+		"prefix": "fc",
+		"body": [
+			"import React, { FC } from 'react';",
+			"import styled from 'styled-components';",
+			"",
+			"export interface ${1:${TM_FILENAME_BASE}}Props {",
+			"\t$2",
+			"}",
+			"",
+			"export const ${1:${TM_FILENAME_BASE}}: FC<${1:TM_FILENAME_BASE}Props> = () => {",
+			"\t$0",
+			"};",
+			""
+		]
+	},
+	"Styled Component": {
+		"prefix": "stc",
+		"body": [
+			"const ${1:Name} = styled${2:.div}`",
+			"\t$0",
+			"`;"
+		]
+	}
+}

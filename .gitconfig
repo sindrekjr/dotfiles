@@ -5,4 +5,5 @@
 	pad = add --patch
 
 [core]
+	editor = vim
 	ignorecase = false

@@ -1,6 +1,6 @@
 {
 	"Function Component": {
-		"prefix": "fc",
+		"prefix": "ffc",
 		"body": [
 			"import React, { FC } from 'react';",
 			"import styled from 'styled-components';",
@@ -13,7 +13,8 @@
 			"\t$0",
 			"};",
 			""
-		]
+		],
+		"description": "Scaffold React Function Component with Props interface and imports."
 	},
 	"Styled Component": {
 		"prefix": "stc",
@@ -21,6 +22,7 @@
 			"const ${1:Name} = styled${2:.div}`",
 			"\t$0",
 			"`;"
-		]
-	}
+		],
+		"description": "Scaffold Styled Component.",
+	},
 }

@@ -12,7 +12,11 @@
     "workbench.editor.tabCloseButton": "left",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "newUntitledFile",
-    "gitlens.hovers.currentLine.over": "line",
+    "window.zoomLevel": -1,
+
+    /*
+     * Language-specific
+     */
     "[csharp]": {
         "editor.tabSize": 4
     },
@@ -25,4 +29,23 @@
     "[nwscript]": {
         "editor.tabSize": 4
     },
+
+    /*
+     * Extensions
+     */
+    "gitlens.hovers.currentLine.over": "line",
+    "material-icon-theme.files.associations": {
+        "*.i18n.js": "I18n",
+        "*.i18n.ts": "I18n",
+        "*.reducer.js": "Redux-reducer",
+        "*.reducer.ts": "Redux-reducer",
+        "*.actions.js": "Redux-action",
+        "*.actions.ts": "Redux-action",
+        "configureStore.js": "Redux-store",
+        "configureStore.ts": "Redux-store",
+        "rootReducer.js": "Redux-reducer",
+        "rootReducer.ts": "Redux-reducer",
+        "*.styles.js": "../../icons/paint-brush-in-circle",
+        "*.styles.ts": "../../icons/paint-brush-in-circle",
+    }
 }

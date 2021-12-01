@@ -3,6 +3,7 @@
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ / | sort
 	publish = push -u origin HEAD
 	pad = add --patch
+	amend = commit --amend
 
 [core]
 	editor = vim

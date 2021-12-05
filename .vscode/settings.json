@@ -1,8 +1,9 @@
 {
-    "editor.fontFamily": "Jetbrains Mono, Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "Fira Code, Jetbrains Mono, Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
     "editor.acceptSuggestionOnCommitCharacter": false,
     "editor.accessibilitySupport": "auto",
-    "editor.fontSize": 12,
+    "editor.fontSize": 10,
     "editor.tabSize": 2,
     "files.eol": "\n",
     "telemetry.enableTelemetry": false,

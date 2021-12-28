@@ -18,17 +18,11 @@
     /*
      * Language-specific
      */
-    "[csharp]": {
+    "[csharp][nwscript][rust]": {
         "editor.tabSize": 4
     },
-    "[ruby]": {
+    "[javascript][ruby]": {
         "editor.tabSize": 2
-    },
-    "[javascript]": {
-        "editor.tabSize": 2
-    },    
-    "[nwscript]": {
-        "editor.tabSize": 4
     },
 
     /*

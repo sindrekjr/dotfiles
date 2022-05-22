@@ -6,7 +6,11 @@
 	undo = reset HEAD~1
 	amend = commit --amend
 	unstage = restore --staged .
-
+[commit]
+	gpgsign = true
 [core]
-	editor = vim
+	autocrlf = true
+	fsmonitor = true
 	ignorecase = false
+[push]
+	default = simple

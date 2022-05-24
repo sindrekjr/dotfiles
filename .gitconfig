@@ -1,16 +1,18 @@
 [alias]
-	graph = log --oneline --graph --pretty=format:'%C(green dim)%h%Creset %C(cyan)(%cr)%Creset %C(blue)%C(bold)%d%Creset %s %C(yellow)- %aN%Creset'
+	graph = log --oneline --graph --pretty=format:'%C(yellow)%h%C(red)%d%Creset %s %C(italic green)- %aN %C(dim green)(%cr)%Creset'
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ / | sort
 	publish = push -u origin HEAD
 	pad = add --patch
 	undo = reset HEAD~1
 	amend = commit --amend
 	unstage = restore --staged .
+	trim = branch -D
+	branches = branch --format='%(HEAD:sha) %(color:red)%(refname:short) %(color:yellow)(%(objectname:short))%(color:reset) %(contents:subject) %(color:italic green)- %(authorname) (%(committerdate:relative))' --sort=-committerdate
 [commit]
 	gpgsign = true
 [core]
 	autocrlf = true
-	fsmonitor = true
+	fsmonitor = false # maybe later?
 	ignorecase = false
 [push]
 	default = simple

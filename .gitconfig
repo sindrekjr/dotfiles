@@ -8,6 +8,8 @@
 	unstage = restore --staged .
 	trim = branch -D
 	branches = branch --format='%(HEAD:sha) %(color:red)%(refname:short) %(color:yellow)(%(objectname:short))%(color:reset) %(contents:subject) %(color:italic green)- %(authorname) (%(committerdate:relative))' --sort=-committerdate
+	last = log -1 HEAD --stat
+	compare = difftool -t vimdiff -y
 [commit]
 	gpgsign = true
 [core]

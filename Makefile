@@ -1,5 +1,5 @@
 HOMEFILES := $(shell ls -A $(HOME))
-DOTFILES := $(addprefix $(HOME)/,$(HOMEFILES))
+DOTFILES := $(shell ls -A dotfiles)
 ALIASES := ~/.bash_aliases
 GITDIR := $(shell dirname $$PWD)
 

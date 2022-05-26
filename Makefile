@@ -9,6 +9,6 @@ gitdir:
 	$(shell echo "alias gitdir='cd $(GITDIR)'" >> $(ALIASES))
 
 kube-ps1:
-	$(shell wget https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh -O $(HOME)/kube-ps1/kube-ps1.sh)
+	$(shell curl https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh --create-dirs -o $(HOME)/kube-ps1/kube-ps1.sh)
 
 link: # use this for making symlinks

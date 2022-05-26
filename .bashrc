@@ -31,6 +31,7 @@ fi
 
 ## custom stuff
 source $HOME/sh/auto-ssh-agent.sh
+source $HOME/sh/gitdir.sh
 source $HOME/sh/ps1.sh
 
 # set GPG_TTY for gpgsigning in wsl shell

@@ -1,8 +1,3 @@
-if [ -f "$HOME/kube-ps1/kube-ps1.sh" ] ; then
-    source $HOME/kube-ps1/kube-ps1.sh
-    kube='`kube_ps1`'
-fi
-
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
@@ -22,14 +17,16 @@ else
 fi
 
 # git
-git='`__git_ps1`'
-PS1="$PS1$git"
+PS1+='`__git_ps1`'
 if [ "$colours" = yay ] ; then
     PS1="$PS1\[\033[00m\]"
 fi
 
 # kube
-PS1="$PS1 $kube"
+if [ -f "$HOME/kube-ps1/kube-ps1.sh" ] ; then
+    source $HOME/kube-ps1/kube-ps1.sh
+    PS1+=' `kube_ps1`'
+fi
 
 # prompt
 PS1="$PS1\n$ "

@@ -1,0 +1,17 @@
+on: workflow_dispatch
+  # push:
+  # schedule:
+  #   - cron: '0 15 * * 5'
+
+jobs:
+  make:
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - run: make gitdir
+      - run: make kube-ps1
+      - run: make link

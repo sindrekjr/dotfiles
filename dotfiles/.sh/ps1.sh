@@ -1,4 +1,4 @@
-if [ -d "$HOME/kube-ps1/kube-ps1.sh" ] ; then
+if [ -f "$HOME/kube-ps1/kube-ps1.sh" ] ; then
     source $HOME/kube-ps1/kube-ps1.sh
     kube='`kube_ps1`'
 fi

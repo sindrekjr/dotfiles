@@ -2,7 +2,6 @@ HOMEFILES := $(shell ls -A $(HOME))
 DOTFILES := $(shell ls -A dotfiles)
 DOTENV := ~/.env
 GITDIR := $(shell dirname $$PWD)
-USER := $(shell echo $$USER)
 
 link: $(DOTFILES)
 
@@ -34,12 +33,19 @@ gitdir:
 
 KUBECTX := kubectx kubens
 
-kube: kube-ps1 $(KUBECTX)
-
-$(KUBECTX):
-	$(shell sudo curl https://raw.githubusercontent.com/ahmetb/kubectx/master/$@ -o /usr/local/bin/$@)
-	$(shell sudo chown $(USER):$(USER) /usr/local/bin/$@)
-	$(shell sudo chmod +x /usr/local/bin/$@)
+kube: kube-ps1 kubectl $(KUBECTX)
 
 kube-ps1:
-	$(shell curl https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh --create-dirs -o $(HOME)/.kube/.sh/kube-ps1.sh)
+	@curl https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh --create-dirs -o $(HOME)/.kube/.sh/kube-ps1.sh
+
+kubectl:
+	@curl -L "https://dl.k8s.io/release/$(shell curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" -o /tmp/kubectl
+	@curl -L "https://dl.k8s.io/$(shell curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256" -o /tmp/kubectl.sha256
+	@echo "$$(cat /tmp/kubectl.sha256) /tmp/kubectl" | sha256sum --check
+	@sudo install -o root -g root -m 0755 /tmp/kubectl /usr/local/bin/kubectl
+	@rm /tmp/kubectl /tmp/kubectl.sha256
+
+$(KUBECTX):
+	@sudo curl https://raw.githubusercontent.com/ahmetb/kubectx/master/$@ -o /usr/local/bin/$@
+	@sudo chown $$USER:$$USER /usr/local/bin/$@
+	@sudo chmod +x /usr/local/bin/$@

@@ -31,7 +31,15 @@ gitdir:
 	@echo -n "Setting GITDIR=$(GITDIR) in $(DOTENV). [Y/n]" && read ans && [ $${ans:-Y} = Y ]
 	$(shell echo "GITDIR=$(GITDIR)" >> $(DOTENV))
 
+kube: kubectx kubens kube-ps1
+
+kubens:
+	$(shell sudo curl https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens -o /usr/local/bin/kubens)
+	$(shell sudo chmod +x /usr/local/bin/kubens)
+
+kubectx:
+	$(shell sudo curl https://raw.githubusercontent.com/ahmetb/kubectx/master/kubectx -o /usr/local/bin/kubectx)
+	$(shell sudo chmod +x /usr/local/bin/kubectx)
+
 kube-ps1:
 	$(shell curl https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh --create-dirs -o $(HOME)/.kube/.sh/kube-ps1.sh)
-
-link: # use this for making symlinks

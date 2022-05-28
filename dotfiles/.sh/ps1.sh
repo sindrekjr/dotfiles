@@ -23,8 +23,8 @@ if [ "$colours" = yay ] ; then
 fi
 
 # kube
-if [ -f "$HOME/kube-ps1/kube-ps1.sh" ] ; then
-    source $HOME/kube-ps1/kube-ps1.sh
+if [ -f "$HOME/.kube/.sh/kube-ps1.sh" ] ; then
+    source $HOME/.kube/.sh/kube-ps1.sh
     PS1+=' `kube_ps1`'
 fi
 

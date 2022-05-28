@@ -32,6 +32,6 @@ gitdir:
 	$(shell echo "GITDIR=$(GITDIR)" >> $(DOTENV))
 
 kube-ps1:
-	$(shell curl https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh --create-dirs -o $(HOME)/kube-ps1/kube-ps1.sh)
+	$(shell curl https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh --create-dirs -o $(HOME)/.kube/.sh/kube-ps1.sh)
 
 link: # use this for making symlinks

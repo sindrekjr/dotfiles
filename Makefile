@@ -47,16 +47,7 @@ $(DOTFILES):
 ## ---------------------------------------------------------------
 KUBECTX := kubectx kubens
 
-kube: kube-ps1 kubectl $(KUBECTX)
-
-kind:
-	@curl -Lo /tmp/kind https://kind.sigs.k8s.io/dl/v0.14.0/kind-linux-amd64
-	@chmod +x /tmp/kind
-	@sudo mv /tmp/kind /usr/local/bin/kind
-	@echo " - Success - installed kind"
-
-kube-ps1:
-	@curl https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh --create-dirs -o $(HOME)/.kube/.sh/kube-ps1.sh
+kube: kubectl $(KUBECTX) kube-ps1 krew kind
 
 kubectl:
 	@curl -Lo /tmp/kubectl "https://dl.k8s.io/release/$(shell curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -71,6 +62,24 @@ $(KUBECTX):
 	@chmod +x /tmp/$@
 	@sudo mv /tmp/$@ /usr/local/bin/$@
 	@echo " - Success - installed $@"
+
+kube-ps1:
+	@curl https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh --create-dirs -o $(HOME)/.kube/.sh/kube-ps1.sh
+
+krew:
+	set -x; cd "$$(mktemp -d)" && \
+	OS="$$(uname | tr '[:upper:]' '[:lower:]')" && \
+	ARCH="$$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$$/arm64/')" && \
+	KREW="krew-$${OS}_$${ARCH}" && \
+	curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/$${KREW}.tar.gz" && \
+	tar zxvf "$${KREW}.tar.gz" && \
+	./"$${KREW}" install krew;
+
+kind:
+	@curl -Lo /tmp/kind https://kind.sigs.k8s.io/dl/v0.14.0/kind-linux-amd64
+	@chmod +x /tmp/kind
+	@sudo mv /tmp/kind /usr/local/bin/kind
+	@echo " - Success - installed kind"
 
 
 ## ---------------------------------------------------------------

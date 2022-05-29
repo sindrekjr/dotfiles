@@ -41,3 +41,6 @@ fi
 
 # set GPG_TTY for gpgsigning in wsl shell
 export GPG_TTY=$(tty)
+
+# add kubectl krew to path
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"

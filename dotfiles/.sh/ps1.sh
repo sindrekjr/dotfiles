@@ -7,19 +7,19 @@ case "$TERM" in
 esac
 
 ## build PS1
-PS1='${debian_chroot:+($debian_chroot)}'
+PS1='\n${debian_chroot:+($debian_chroot)}'
 
 # directory
 if [ "$colours" = yay ] ; then
-    PS1="$PS1\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[33m\]\w\[\033[36m\]"
+    PS1+="\[\033[33m\]\w\[\033[36m\]"
 else
-    PS1="$PS1\u@\h \w"
+    PS1+="\w"
 fi
 
 # git
 PS1+='`__git_ps1`'
 if [ "$colours" = yay ] ; then
-    PS1="$PS1\[\033[00m\]"
+    PS1+="\[\033[00m\]"
 fi
 
 # kube
@@ -29,6 +29,6 @@ if [ -f "$HOME/.kube/.sh/kube-ps1.sh" ] ; then
 fi
 
 # prompt
-PS1="$PS1\n$ "
+PS1+="\n🌰 "
 
 unset colours

@@ -39,15 +39,16 @@ $(DOTFILES):
 
 
 ## ---------------------------------------------------------------
-## Kubernetes stuff, installs and configures the following
+## Kubernetes stuff; installs and configures the following
 ## - kubectl
 ## - kubectx
 ## - kubens
-## - kind
+## - kube-ps1
+## - kubectl-krew
 ## ---------------------------------------------------------------
 KUBECTX := kubectx kubens
 
-kube: kubectl $(KUBECTX) kube-ps1 krew kind
+kube: kubectl $(KUBECTX) kube-ps1 kubectl-krew
 
 kubectl:
 	@curl -Lo /tmp/kubectl "https://dl.k8s.io/release/$(shell curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -66,7 +67,7 @@ $(KUBECTX):
 kube-ps1:
 	@curl https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh --create-dirs -o $(HOME)/.kube/.sh/kube-ps1.sh
 
-krew:
+kubectl-krew:
 	set -x; cd "$$(mktemp -d)" && \
 	OS="$$(uname | tr '[:upper:]' '[:lower:]')" && \
 	ARCH="$$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$$/arm64/')" && \
@@ -74,6 +75,15 @@ krew:
 	curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/$${KREW}.tar.gz" && \
 	tar zxvf "$${KREW}.tar.gz" && \
 	./"$${KREW}" install krew;
+
+# ---------------------------------------------------------------
+# Optional Kubernetes stuff
+# - kubectl-graph
+# - kind
+# ---------------------------------------------------------------
+kubectl-graph:
+	@kubectl krew install graph
+	@sudo apt install graphviz
 
 kind:
 	@curl -Lo /tmp/kind https://kind.sigs.k8s.io/dl/v0.14.0/kind-linux-amd64

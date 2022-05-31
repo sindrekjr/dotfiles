@@ -18,24 +18,11 @@ link: $(DOTFILES)
 $(DOTFILES):
 	$(eval DOT=$(PWD)/dotfiles/$@)
 	$(eval HOMEDOT=$(HOME)/$@)
-	@if [ -f $(HOMEDOT) ] || [ -d $(HOMEDOT) ]; then \
-		echo -n "Home already contains $(DOT). (O)verwrite, (r)ename, or (c)cancel? " && read ans; \
-		[ -z $$ans ] && ans=o; \
-		case $$ans in \
-			o|O) \
-				ln -sfn $(DOT) $(HOMEDOT);; \
-			r|R) \
-				mv -f $(HOMEDOT) $(HOMEDOT).save ; \
-				ln -s $(DOT) $(HOMEDOT);; \
-			c|C) \
-				return;; \
-			*) \
-				echo " ! Fail ! invalid argument: $$ans"; exit 1;; \
-		esac \
-	else \
-		ln -s $(DOT) $(HOMEDOT); \
-	fi; \
-	echo " - Success - linked $(HOMEDOT) to $(DOT)"; \
+	@if [ -d $(HOMEDOT) ]; then \
+		rm -r $(HOMEDOT); \
+	fi;
+	@ln -sfn $(DOT) $(HOMEDOT)
+	@echo " - Success - linked $(HOMEDOT) to $(DOT)"
 
 
 ## ---------------------------------------------------------------

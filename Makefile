@@ -36,6 +36,13 @@ ghcli:
 
 
 ## ---------------------------------------------------------------
+## Node Version Manager
+## ---------------------------------------------------------------
+nvm:
+	@curl -o- https://raw.githubusercontent.com/creationix/nvm/$(shell basename $$(curl -fs -o/dev/null -w %{redirect_url} https://github.com/nvm-sh/nvm/releases/latest))/install.sh | bash
+
+
+## ---------------------------------------------------------------
 ## Kubernetes stuff; installs and configures the following
 ## - kubectl
 ## - kubectx

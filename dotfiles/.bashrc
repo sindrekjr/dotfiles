@@ -34,6 +34,7 @@ source $HOME/.sh/auto-ssh-agent.sh
 source $HOME/.sh/gitdir.sh
 source $HOME/.sh/kube.sh
 source $HOME/.sh/ps1.sh
+source $HOME/.sh/nvm.sh
 
 if [ -f ~/.env ]; then
     . ~/.env

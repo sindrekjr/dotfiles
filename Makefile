@@ -1,5 +1,6 @@
 HOMEFILES := $(shell ls -A $(HOME))
 DOTFILES := $(shell ls -A dotfiles)
+USER := $(shell whoami)
 
 # Am I Windows?
 ifeq ($(OS),Windows_NT)
@@ -104,6 +105,14 @@ kind:
 	@chmod +x /tmp/kind
 	@sudo mv /tmp/kind /usr/local/bin/kind
 	@echo " - Success - installed kind"
+
+
+# ---------------------------------------------------------------
+# Terraform
+# - tfswitch
+# ---------------------------------------------------------------
+tfswitch:
+	@curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | bash
 
 
 ## ---------------------------------------------------------------

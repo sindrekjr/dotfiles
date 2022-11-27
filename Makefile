@@ -54,6 +54,13 @@ nvm:
 
 
 ## ---------------------------------------------------------------
+## Rust
+## ---------------------------------------------------------------
+rust:
+	@curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+
+## ---------------------------------------------------------------
 ## Kubernetes stuff; installs and configures the following
 ## - kubectl
 ## - kubectx

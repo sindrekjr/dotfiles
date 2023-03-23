@@ -50,6 +50,10 @@ dotnet-sdk:
 	@sudo apt update
 	sudo apt install -y dotnet-sdk-$(DOTNET_VERSION)
 
+dotnet-runtime:
+	@sudo apt update
+	sudo apt install -y dotnet-runtime-$(DOTNET_VERSION)
+
 
 ## ---------------------------------------------------------------
 ## Node Version Manager

@@ -25,6 +25,12 @@ $(DOTFILES):
 	@ln -sfn $(DOT) $(HOMEDOT)
 	@echo " - Success - linked $(HOMEDOT) to $(DOT)"
 
+## ---------------------------------------------------------------
+## Azure CLI
+## ---------------------------------------------------------------
+azcli:
+	@curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
 
 ## ---------------------------------------------------------------
 ## GitHub CLI

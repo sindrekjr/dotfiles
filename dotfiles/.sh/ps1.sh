@@ -28,7 +28,10 @@ if [ -f "$HOME/.kube/.sh/kube-ps1.sh" ] ; then
     PS1+=' `kube_ps1`'
 fi
 
+# host
+PS1+="\n\[\033[32m\]\u@\h\[\033[00m\]"
+
 # prompt
-PS1+="\n🌰 "
+PS1+=" 🌰 "
 
 unset colours

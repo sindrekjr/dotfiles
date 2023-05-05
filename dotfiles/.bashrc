@@ -45,3 +45,6 @@ export GPG_TTY=$(tty)
 
 # add kubectl krew to path
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# default completion behavior for cd
+compopt -o bashdefault cd

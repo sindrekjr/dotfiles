@@ -137,6 +137,16 @@ tfswitch:
 	@curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | bash
 
 
+# ---------------------------------------------------------------
+# Zola
+# ---------------------------------------------------------------
+zola:
+	$(eval ZOLA_VERSION=$(shell basename $$(curl -fs -o/dev/null -w %{redirect_url} https://github.com/barnumbirr/zola-debian/releases/latest)))
+	@wget -O /tmp/zola https://github.com/barnumbirr/zola-debian/releases/download/$(ZOLA_VERSION)/zola_$(subst v,,$(ZOLA_VERSION))_$(shell dpkg --print-architecture)_bullseye.deb
+	@sudo dpkg -i /tmp/zola
+	@rm /tmp/zola
+
+
 ## ---------------------------------------------------------------
 ## Environment variables; initialized in a ~/.env file
 ## ---------------------------------------------------------------

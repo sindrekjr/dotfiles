@@ -59,10 +59,6 @@ if [ -f ~/.env ]; then
 fi
 cd ~
 
-if [ -f ~/.env ]; then
-    . ~/.env
-fi
-
 # set GPG_TTY for gpgsigning in wsl shell
 export GPG_TTY=$(tty)
 

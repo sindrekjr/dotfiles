@@ -13,7 +13,7 @@
 [commit]
 	gpgsign = true
 [core]
-	autocrlf = true
+	autocrlf = false
 	fsmonitor = false # maybe later?
 	ignorecase = false
 [push]

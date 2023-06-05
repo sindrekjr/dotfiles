@@ -128,6 +128,17 @@ zola:
 	@rm /tmp/zola
 
 
+# ---------------------------------------------------------------
+# MQTT TUI
+# ---------------------------------------------------------------
+MQTTUI_VERSION := $(shell basename $$(curl -fs -o/dev/null -w %{redirect_url} https://github.com/EdJoPaTo/mqttui/releases/latest))
+
+mqttui:
+	wget https://github.com/EdJoPaTo/mqttui/releases/download/$(MQTTUI_VERSION)/mqttui-$(MQTTUI_VERSION)-x86_64-unknown-linux-gnu.deb 
+	sudo dpkg -i mqttui-$(MQTTUI_VERSION)-x86_64-unknown-linux-gnu.deb
+	rm mqttui-$(MQTTUI_VERSION)-x86_64-unknown-linux-gnu.deb
+
+
 ## ---------------------------------------------------------------
 ## Environment variables; initialized in a ~/.env file
 ## ---------------------------------------------------------------

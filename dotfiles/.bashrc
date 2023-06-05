@@ -36,6 +36,29 @@ source $HOME/.sh/kube.sh
 source $HOME/.sh/ps1.sh
 source $HOME/.sh/nvm.sh
 
+# inject environment variables
+if [ -f ~/.env ]; then
+  cd /mnt/c
+  while IFS= read -r line 
+  do
+    if [[ "$line" == \#* ]] || [[ "$line" == "" ]]; then
+      continue
+    fi
+
+    name="${line%%=*}"
+    value="${line#*=}"
+
+    # if a value starts with WIN:, assume WSL and fetch variable from Windows
+    if [[ "$value" == WIN:* ]]; then
+      win_value=$(/mnt/c/Windows/System32/cmd.exe /C "echo %${value#WIN:}%" | tr -d '\r')
+      export "${name}=${win_value}"
+    else
+      export "${name}=${value}"
+    fi
+  done < ~/.env
+fi
+cd ~
+
 if [ -f ~/.env ]; then
     . ~/.env
 fi

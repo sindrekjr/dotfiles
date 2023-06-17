@@ -1,11 +1,9 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": 
-    [
+    "actions": [
         {
-            "command": 
-            {
+            "command": {
                 "action": "copy",
                 "singleLine": false
             },
@@ -16,8 +14,7 @@
             "keys": "ctrl+v"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "splitPane",
                 "index": 2,
                 "split": "down"
@@ -29,8 +26,7 @@
             "keys": "ctrl+shift+f"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "splitPane",
                 "index": 3,
                 "split": "down"
@@ -38,8 +34,7 @@
             "keys": "ctrl+alt+4"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
@@ -47,8 +42,7 @@
             "keys": "alt+shift+d"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "splitPane",
                 "index": 1,
                 "split": "down"
@@ -56,8 +50,7 @@
             "keys": "ctrl+alt+2"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "splitPane",
                 "split": "down",
                 "splitMode": "duplicate"
@@ -65,8 +58,7 @@
             "keys": "ctrl+alt+shift+d"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "splitPane",
                 "index": 0,
                 "split": "auto"
@@ -74,8 +66,7 @@
             "keys": "ctrl+1"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "splitPane",
                 "index": 0,
                 "split": "down"
@@ -83,8 +74,7 @@
             "keys": "ctrl+alt+1"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "splitPane",
                 "index": 1,
                 "split": "auto"
@@ -92,8 +82,7 @@
             "keys": "ctrl+2"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "splitPane",
                 "index": 4,
                 "split": "down"
@@ -101,8 +90,7 @@
             "keys": "ctrl+alt+5"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "splitPane",
                 "index": 3,
                 "split": "auto"
@@ -110,17 +98,7 @@
             "keys": "ctrl+4"
         },
         {
-            "command": 
-            {
-                "action": "splitPane",
-                "index": 5,
-                "split": "down"
-            },
-            "keys": "ctrl+alt+6"
-        },
-        {
-            "command": 
-            {
+            "command": {
                 "action": "splitPane",
                 "index": 2,
                 "split": "auto"
@@ -128,50 +106,47 @@
             "keys": "ctrl+3"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "splitPane",
                 "index": 4,
                 "split": "auto"
             },
             "keys": "ctrl+5"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "index": 5,
-                "split": "auto"
-            },
-            "keys": "ctrl+6"
         }
     ],
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{51855cb2-8cce-5362-8f54-464b92b32386}",
-    "profiles": 
-    {
-        "defaults": {},
-        "list": 
-        [
+    "defaultProfile": "{d7b20cea-47a9-518c-95a4-c8bd91e2e1c6}",
+    "profiles": {
+        "defaults": {
+            "font": {
+                "face": "Consolas",
+                "size": 8.0,
+                "weight": "medium"
+            },
+            "opacity": 92,
+            "padding": "10",
+            "useAcrylic": false
+        },
+        "list": [
+            {
+                "guid": "{d7b20cea-47a9-518c-95a4-c8bd91e2e1c6}",
+                "hidden": false,
+                "name": "Ubuntu 22.04.2 LTS",
+                "source": "CanonicalGroupLimited.Ubuntu22.04LTS_79rhkp1fndgsc"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            },
             {
                 "commandline": "%PROGRAMFILES%/Git/bin/bash.exe --login",
                 "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
                 "hidden": false,
                 "name": "Git Bash",
                 "icon": "ms-appdata:///roaming/git-for-windows.ico"
-            },
-            {
-                "commandline": "%SystemRoot%/System32/WindowsPowerShell/v1.0/powershell.exe",
-                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "hidden": false,
-                "name": "Windows PowerShell"
-            },
-            {
-                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
-                "hidden": false,
-                "name": "Ubuntu",
-                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
             },
             {
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
@@ -187,8 +162,11 @@
             }
         ]
     },
-    "schemes": 
-    [
+    "tabWidthMode": "compact",
+    "theme": "dark",
+    "themes": [],
+    "useAcrylicInTabRow": false,
+    "schemes": [
         {
             "background": "#0C0C0C",
             "black": "#0C0C0C",
@@ -419,8 +397,5 @@
             "white": "#C0C0C0",
             "yellow": "#808000"
         }
-    ],
-    "tabWidthMode": "compact",
-    "theme": "dark",
-    "useAcrylicInTabRow": true
+    ]
 }

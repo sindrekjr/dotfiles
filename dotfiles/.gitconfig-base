@@ -6,7 +6,7 @@
 	undo = reset HEAD~1
 	amend = commit --amend
 	unstage = restore --staged .
-	trim = branch -D
+	trim = "!f() { git for-each-ref --format='%(refname:short)' refs/heads/ | grep -v $1 | xargs -I '{}' sh -c 'git merge-base --is-ancestor {} $1 && git branch -d {}' - $1; }; f"
 	branches = branch --format='%(HEAD:sha) %(color:red)%(refname:short) %(color:yellow)(%(objectname:short))%(color:reset) %(contents:subject) %(color:italic green)- %(authorname) (%(committerdate:relative))' --sort=-committerdate
 	last = log -1 HEAD --stat
 	compare = difftool -t vimdiff -y

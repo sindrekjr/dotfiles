@@ -38,7 +38,6 @@ source $HOME/.sh/nvm.sh
 
 # inject environment variables
 if [ -f ~/.env ]; then
-  cd /mnt/c
   while IFS= read -r line 
   do
     if [[ "$line" == \#* ]] || [[ "$line" == "" ]]; then
@@ -50,6 +49,7 @@ if [ -f ~/.env ]; then
 
     # if a value starts with WIN:, assume WSL and fetch variable from Windows
     if [[ "$value" == WIN:* ]]; then
+      cd /mnt/c
       win_value=$(/mnt/c/Windows/System32/cmd.exe /C "echo %${value#WIN:}%" | tr -d '\r')
       export "${name}=${win_value}"
     else

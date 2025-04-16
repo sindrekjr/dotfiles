@@ -67,3 +67,8 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # default completion behavior for cd
 compopt -o bashdefault cd
+
+# mcfly
+if command -v mcfly >/dev/null 2>&1; then
+    eval "$(mcfly init bash)"
+fi

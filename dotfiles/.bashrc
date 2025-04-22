@@ -72,3 +72,8 @@ compopt -o bashdefault cd
 if command -v mcfly >/dev/null 2>&1; then
     eval "$(mcfly init bash)"
 fi
+
+# direnv
+if command -v direnv >/dev/null 2>&1; then
+    eval "$(direnv hook bash)"
+fi

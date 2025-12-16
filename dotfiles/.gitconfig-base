@@ -16,5 +16,6 @@
 	autocrlf = false
 	fsmonitor = false # maybe later?
 	ignorecase = false
+	editor = vim
 [push]
 	default = simple

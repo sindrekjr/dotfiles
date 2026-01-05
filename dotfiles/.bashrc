@@ -30,15 +30,15 @@ fi
 
 
 ## custom stuff
-source $HOME/.sh/auto-ssh-agent.sh
 source $HOME/.sh/gitdir.sh
 source $HOME/.sh/kube.sh
 source $HOME/.sh/ps1.sh
 source $HOME/.sh/nvm.sh
+source $HOME/.sh/wttr.sh
 
 # inject environment variables
 if [ -f ~/.env ]; then
-  while IFS= read -r line 
+  while IFS= read -r line
   do
     if [[ "$line" == \#* ]] || [[ "$line" == "" ]]; then
       continue
@@ -46,24 +46,12 @@ if [ -f ~/.env ]; then
 
     name="${line%%=*}"
     value="${line#*=}"
-
-    # if a value starts with WIN:, assume WSL and fetch variable from Windows
-    if [[ "$value" == WIN:* ]]; then
-      cd /mnt/c
-      win_value=$(/mnt/c/Windows/System32/cmd.exe /C "echo %${value#WIN:}%" | tr -d '\r')
-      export "${name}=${win_value}"
-    else
-      export "${name}=${value}"
-    fi
+    export "${name}=${value}"
   done < ~/.env
 fi
-cd ~
 
 # set GPG_TTY for gpgsigning in wsl shell
 export GPG_TTY=$(tty)
-
-# add kubectl krew to path
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # default completion behavior for cd
 compopt -o bashdefault cd

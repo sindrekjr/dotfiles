@@ -9,11 +9,16 @@ esac
 ## build PS1
 PS1='\n${debian_chroot:+($debian_chroot)}'
 
+# show shell level higher than 1
+if [ $SHLVL -gt "1" ] ; then
+    PS1_SHLVL="^$SHLVL"
+fi
+
 # directory
 if [ "$colours" = yay ] ; then
-    PS1+="\[\033[33m\]\w\[\033[36m\]"
+    PS1+="\[\033[33m\]\w$PS1_SHLVL\[\033[36m\]"
 else
-    PS1+="\w"
+    PS1+="\w$PS1_SHLVL"
 fi
 
 # git

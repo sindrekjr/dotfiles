@@ -58,10 +58,16 @@ compopt -o bashdefault cd
 
 # mcfly
 if command -v mcfly >/dev/null 2>&1; then
-    eval "$(mcfly init bash)"
+  eval "$(mcfly init bash)"
 fi
 
 # direnv
 if command -v direnv >/dev/null 2>&1; then
-    eval "$(direnv hook bash)"
+  eval "$(direnv hook bash)"
+fi
+
+# guix
+if command -v guix >/dev/null 2>&1; then
+  GUIX_PROFILE="$HOME/.guix-profile"
+  source $GUIX_PROFILE/etc/profile
 fi

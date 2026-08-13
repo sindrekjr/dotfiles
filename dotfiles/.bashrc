@@ -31,6 +31,7 @@ fi
 
 ## custom stuff
 source $HOME/.sh/gitdir.sh
+source $HOME/.sh/jwt.sh
 source $HOME/.sh/kube.sh
 source $HOME/.sh/ps1.sh
 source $HOME/.sh/nvm.sh

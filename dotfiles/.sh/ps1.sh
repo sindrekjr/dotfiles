@@ -37,10 +37,10 @@ fi
 #PS1+="\n\[\033[32m\]\u@\h\[\033[00m\]"
 
 # user
-PS1+="\n\[\033[01;32m\]\u\[\033[00m\]"
+# PS1+="\n\[\033[01;32m\]\u@\h\[\033[00m\]"
 
 # prompt
 PROMPTS=("💻" "☕" "🎮" "💡" "🐧" "🚀" "🌰" "🔧" "🔑" "📝" "🔎" "💾" "⚡")
-PS1+=" ${PROMPTS[RANDOM % ${#PROMPTS[@]}]} "
+PS1+="\n${PROMPTS[RANDOM % ${#PROMPTS[@]}]} "
 
 unset colours

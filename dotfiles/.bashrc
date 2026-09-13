@@ -28,15 +28,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
-## custom stuff
-source $HOME/.sh/gitdir.sh
-source $HOME/.sh/jwt.sh
-source $HOME/.sh/kube.sh
-source $HOME/.sh/ps1.sh
-source $HOME/.sh/nvm.sh
-source $HOME/.sh/wttr.sh
-
 # inject environment variables
 if [ -f ~/.env ]; then
   while IFS= read -r line
@@ -50,6 +41,14 @@ if [ -f ~/.env ]; then
     export "${name}=${value}"
   done < ~/.env
 fi
+
+# custom stuff
+source $HOME/.sh/gitdir.sh
+source $HOME/.sh/jwt.sh
+source $HOME/.sh/kube.sh
+source $HOME/.sh/ps1.sh
+source $HOME/.sh/nvm.sh
+source $HOME/.sh/wttr.sh
 
 # set GPG_TTY for gpgsigning in wsl shell
 export GPG_TTY=$(tty)

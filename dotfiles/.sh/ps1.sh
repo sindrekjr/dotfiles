@@ -22,7 +22,16 @@ else
 fi
 
 # git
-PS1+='`__git_ps1`'
+if [[ ! -z "$GIT_PROMPT_FILE" ]] ; then
+    if [ -f $GIT_PROMPT_FILE ] ; then
+        . $GIT_PROMPT_FILE
+    fi
+fi
+if command -v __git_ps1 >/dev/null 2>&1; then
+    PS1+='`__git_ps1`'
+fi
+
+
 if [ "$colours" = yay ] ; then
     PS1+="\[\033[00m\]"
 fi

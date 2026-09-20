@@ -9,7 +9,7 @@ gitdir() {
     return
   fi
 
-  local targets=($(find $GITDIR -type d -name .git -prune | sed "s|$GITDIR/||" | sed "s|/.git$||" | grep "/$1$"))
+  local targets=($(rg --hidden --files "$GITDIR" -g '**/.git/HEAD' | sed "s|$GITDIR/||" | sed "s|/.git/HEAD$||" | grep "/$1$"))
   local count=${#targets[@]}
 
   if [ $count -eq 0 ]; then
@@ -34,7 +34,7 @@ gitdir() {
 # gitdir autocompletion for subdirectories
 _gitdir_complete() {
   local cur=${COMP_WORDS[COMP_CWORD]}
-  local base_paths=$(find $GITDIR -type d -name .git -prune | sed "s|$GITDIR/||" | sed "s|/.git$||" | sort -u)
+  local base_paths=$(rg --hidden --files "$GITDIR" -g '**/.git/HEAD' | sed "s|$GITDIR/||" | sed "s|/.git/HEAD$||" | sort -u)
 
   if [[ $cur == */* ]]; then
     local prefix=${cur%/*}/
